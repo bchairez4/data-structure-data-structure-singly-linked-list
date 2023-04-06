@@ -1,4 +1,4 @@
-# data-structure-singly-linked-list
+# data-structure-singly-linked-list-pointer
 
 Created by Brian Chairez
 
