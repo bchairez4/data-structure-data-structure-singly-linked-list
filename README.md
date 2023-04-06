@@ -1,4 +1,4 @@
-# data_structure_data-structure-singly-linked-list
+# data-structure-singly-linked-list
 
 Created by Brian Chairez
 
