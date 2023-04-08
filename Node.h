@@ -8,13 +8,13 @@ class Node {
         Node<T>* next_;
     public:
         Node();
-        Node(T& data, Node<T>* next);
+        Node(const T& data, Node<T>* next);
         Node(const Node<T>*& other);
         ~Node();
         T& operator=(const Node<T>*& other);
-        T getData();
-        void setData(T& data);
+        T getData() const;
         Node<T>* getNext() const;
+        void setData(const T& data);
         void setNext(Node<T>* next);
 };
 

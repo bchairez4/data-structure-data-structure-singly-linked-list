@@ -61,7 +61,7 @@ T& LinkedList<T>::operator=(const LinkedList<T>& other) {
     List Operations
 *****************************************************************************/
 template <class T>
-void LinkedList<T>::push_front(T& data) {
+void LinkedList<T>::push_front(const T& data) {
     if (empty()) {
         Node<T>* new_node = new Node<T>(data, nullptr);
 
@@ -79,7 +79,7 @@ void LinkedList<T>::push_front(T& data) {
 }
 
 template <class T>
-void LinkedList<T>::push_back(T& data) {
+void LinkedList<T>::push_back(const T& data) {
     if (empty()) {
         Node<T>* new_node = new Node<T>(data, nullptr);
         
@@ -101,9 +101,8 @@ void LinkedList<T>::push_back(T& data) {
 }
 
 template <class T>
-void LinkedList<T>::replace(T& replace, T& data) {
+void LinkedList<T>::replace(const T& replace, const T& data) {
     if (!contains(replace)) {
-        std::cout << replace << " does not exist in the list. Failure to replace()" << '\n';
         return;
     }
 
@@ -118,7 +117,6 @@ void LinkedList<T>::replace(T& replace, T& data) {
 template <class T>
 void LinkedList<T>::pop_front() {
     if (empty()) {
-        std::cout << "The list is empty. Failure to pop_front()" << '\n';
         return;
     }
 
@@ -140,7 +138,6 @@ void LinkedList<T>::pop_front() {
 template <class T>
 void LinkedList<T>::pop_back() {
     if (empty()) {
-        std::cout << "The list is empty. Failure to pop_back()" << '\n';
         return;
     }
 
@@ -165,9 +162,8 @@ void LinkedList<T>::pop_back() {
 }
 
 template <class T>
-void LinkedList<T>::remove(T& data) {
+void LinkedList<T>::remove(const T& data) {
     if (!contains(data)) {
-        std::cout<< data << " does not exist in this list. Failure to perform remove()" << '\n';
         return;
     }
     
@@ -211,23 +207,23 @@ void LinkedList<T>::clear() {
     head_ = nullptr;
 }
 
-template <class T>
-void LinkedList<T>::reverse() {
-    // TO DO 
-}
-
 /*****************************************************************************
     Data Retrieval/ Observation
 *****************************************************************************/
+/* WARNING: Undefined behavior when list is empty */
 template <class T>
-Node<T>* LinkedList<T>::getHead() {
+T LinkedList<T>::front() const {
+    return head_->getData();
+}
+
+template <class T>
+Node<T>* LinkedList<T>::getHead() const {
     return head_;
 }
 
 template <class T>
-bool LinkedList<T>::contains(T& data) {
+bool LinkedList<T>::contains(const T& data)  const{
     if (empty()) {
-        std::cout << "The list is empty." << '\n';
         return false;
     }
 
@@ -254,9 +250,8 @@ int LinkedList<T>::size() const {
 }
 
 template <class T>
-int LinkedList<T>::count(T& data) {
+int LinkedList<T>::count(const T& data) {
     if (empty()) {
-        std::cout << "The list is empty. Failed to perform count()" << '\n';
         return 0;
     }
 
@@ -271,21 +266,6 @@ int LinkedList<T>::count(T& data) {
     }
 
     return count; 
-}
-
-template <class T>
-void LinkedList<T>::print() {
-    if (empty()) {
-        std::cout << "Failed to execute print. The List is empty" << '\n';
-        return;
-    }
-
-    Node<T>* curr_node = head_;
-    while (curr_node != nullptr) {
-        std::cout << curr_node->getData() << " -> ";
-        curr_node = curr_node->getNext();
-    } 
-    std::cout << "nullptr" << '\n';
 }
 
 /*****************************************************************************

@@ -8,7 +8,7 @@ template <class T>
 Node<T>::Node() : next_(nullptr) {}
 
 template <class T>
-Node<T>::Node(T& data, Node<T>* next) 
+Node<T>::Node(const T& data, Node<T>* next) 
     : data_(data), next_(next) {} 
 
 template <class T>
@@ -35,18 +35,18 @@ T& Node<T>::operator=(const Node<T>*& other) {
 *****************************************************************************/
 
 template <class T>
-T Node<T>::getData() {
+T Node<T>::getData() const {
     return data_;
-}
-
-template <class T>
-void Node<T>::setData(T& data) {
-    data_ = data;
 }
 
 template <class T>
 Node<T>* Node<T>::getNext() const {
     return next_;
+}
+
+template <class T>
+void Node<T>::setData(const T& data) {
+    data_ = data;
 }
 
 template <class T>

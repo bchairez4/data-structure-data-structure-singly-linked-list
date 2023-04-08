@@ -1,13 +1,14 @@
 /*****************************************************************************
 *    Brian Chairez                                                           *
-*    Goal: Manual implementation of std::List using dynamic nodes            *
+*    Started: 31 May 2022                                                    *
+*    Completed: 27 August 2022                                               *
+*    Goal: Manual implementation of std::forward_list using dynamic nodes    *
 *    Progess: Basic implementation and methods complete                      *
 *****************************************************************************/
 
 #ifndef LINKEDLIST_H
 #define LINKEDLIST_H
 
-#include <iostream>
 #include "Node.cpp"
 
 template<class T>
@@ -23,20 +24,19 @@ class LinkedList {
         LinkedList(LinkedList<T>& other);
         ~LinkedList();
         T& operator=(const LinkedList<T>& other);
-        Node<T>* getHead();
-        void push_front(T& data);
-        void push_back(T& data);
-        void replace(T& replace, T& data);
+        T front() const;
+        Node<T>* getHead() const;
+        void push_front(const T& data);
+        void push_back(const T& data);
+        void replace(const T& replace, const T& data);
         void pop_front();
         void pop_back();
-        void remove(T& data);
+        void remove(const T& data);
         void clear();
-        void reverse();
-        bool contains(T& data);
+        bool contains(const T& data) const;
         bool empty() const;
         int size() const; 
-        int count(T& data);
-        void print();
+        int count(const T& data);
 };
 
 #endif
