@@ -1,7 +1,5 @@
 /*****************************************************************************
 *    Brian Chairez                                                           *
-*    Started: 31 May 2022                                                    *
-*    Completed: 27 August 2022                                               *
 *    Goal: Manual implementation of std::forward_list using dynamic nodes    *
 *    Progess: Basic implementation and methods complete                      *
 *****************************************************************************/
