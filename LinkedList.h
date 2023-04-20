@@ -1,7 +1,6 @@
 /*****************************************************************************
 *    Brian Chairez                                                           *
 *    Goal: Manual implementation of std::forward_list using dynamic nodes    *
-*    Progess: Basic implementation and methods complete                      *
 *****************************************************************************/
 
 #ifndef LINKEDLIST_H
