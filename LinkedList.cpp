@@ -3,10 +3,11 @@
 /*****************************************************************************
     Constructors/ Destructor
 *****************************************************************************/
-
+// Time Complexity: O(1)
 template <class T>
 LinkedList<T>::LinkedList() : head_(nullptr), size_(0) {}
 
+// Time Complexity: O(N), where N is the number of nodes given by the head pointer.
 template <class T>
 LinkedList<T>::LinkedList(Node<T>*& head) : head_(nullptr), size_(0) {
     if (head == nullptr) {
@@ -35,6 +36,7 @@ LinkedList<T>::LinkedList(Node<T>*& head) : head_(nullptr), size_(0) {
     }
 }
 
+// Time Complexity: O(N), where N is the number of elements in other.
 template <class T>
 LinkedList<T>::LinkedList(LinkedList<T>& other) : head_(nullptr), size_(0) {
     LinkedList<T> temp(other.head_);
@@ -42,6 +44,7 @@ LinkedList<T>::LinkedList(LinkedList<T>& other) : head_(nullptr), size_(0) {
     size_ = temp.size();
 }
 
+// Time Complexity: O(N), where N is the number of elements in the list.
 template<class T>
 LinkedList<T>::~LinkedList() {
     clear();
@@ -50,6 +53,7 @@ LinkedList<T>::~LinkedList() {
 /*****************************************************************************
     Overloaded Operator(s)
 *****************************************************************************/
+// Time Complexity: O(N), where N is the number of elements in other.
 template <class T>
 T& LinkedList<T>::operator=(const LinkedList<T>& other) {
     LinkedList<T> temp(other.head_);
@@ -60,6 +64,7 @@ T& LinkedList<T>::operator=(const LinkedList<T>& other) {
 /*****************************************************************************
     List Operations
 *****************************************************************************/
+// Time Complexity: O(1)
 template <class T>
 void LinkedList<T>::push_front(const T& data) {
     if (empty()) {
@@ -78,6 +83,7 @@ void LinkedList<T>::push_front(const T& data) {
     ++size_;
 }
 
+// Time Complexity: O(N), where N is the number of elements in the list.
 template <class T>
 void LinkedList<T>::push_back(const T& data) {
     if (empty()) {
@@ -100,6 +106,7 @@ void LinkedList<T>::push_back(const T& data) {
     ++size_;
 }
 
+// Time Complexity: O(N), where N is the number of elements in the list.
 template <class T>
 void LinkedList<T>::replace(const T& replace, const T& data) {
     if (!contains(replace)) {
@@ -114,6 +121,7 @@ void LinkedList<T>::replace(const T& replace, const T& data) {
     curr_node->setData(data);
 }
 
+// Time Complexity: O(1)
 template <class T>
 void LinkedList<T>::pop_front() {
     if (empty()) {
@@ -135,6 +143,7 @@ void LinkedList<T>::pop_front() {
     --size_;
 }
 
+// Time Complexity: O(N), where N is the number of elements in the list.
 template <class T>
 void LinkedList<T>::pop_back() {
     if (empty()) {
@@ -161,6 +170,7 @@ void LinkedList<T>::pop_back() {
     --size_;
 }
 
+// Time Complexity: O(N), where N is the number of elements in the list.
 template <class T>
 void LinkedList<T>::remove(const T& data) {
     if (!contains(data)) {
@@ -201,6 +211,7 @@ void LinkedList<T>::remove(const T& data) {
     --size_;
 }
 
+// Time Complexity: O(N), where N is the number of elements in the list.
 template <class T>
 void LinkedList<T>::clear() {
     deleteRecursive_(head_);
@@ -211,16 +222,19 @@ void LinkedList<T>::clear() {
     Data Retrieval/ Observation
 *****************************************************************************/
 /* WARNING: Undefined behavior when list is empty */
+// Time Complexity: O(1)
 template <class T>
 T LinkedList<T>::front() const {
     return head_->getData();
 }
 
+// Time Complexity: O(1)
 template <class T>
 Node<T>* LinkedList<T>::getHead() const {
     return head_;
 }
 
+// Time Complexity: O(N), where N is the number of elements in the list.
 template <class T>
 bool LinkedList<T>::contains(const T& data)  const{
     if (empty()) {
@@ -239,16 +253,19 @@ bool LinkedList<T>::contains(const T& data)  const{
     return false;
 }
 
+// Time Complexity: O(1)
 template <class T>
 bool LinkedList<T>::empty() const {
     return size_ == 0;
 }
 
+// Time Complexity: O(1)
 template <class T>
 int LinkedList<T>::size() const {
     return size_;
 }
 
+// Time Complexity: O(N), where N is the number of elements in the list.
 template <class T>
 int LinkedList<T>::count(const T& data) {
     if (empty()) {
@@ -271,6 +288,7 @@ int LinkedList<T>::count(const T& data) {
 /*****************************************************************************
     Private Functions
 *****************************************************************************/
+// Time Complexity: O(N), where N is the number of elements in the list.
 template <class T>
 void LinkedList<T>::deleteRecursive_(Node<T>*& node) {
     if (node == nullptr) {
